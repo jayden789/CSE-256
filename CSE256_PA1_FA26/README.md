@@ -36,8 +36,9 @@ and saves a train/dev accuracy plot (e.g. `dan_glove300_accuracy.png`).
 | `--dropout P` | 0.3 | DAN, SUBWORDDAN | Dropout on the averaged embedding and after each hidden layer |
 | `--word_dropout P` | 0.0 | DAN, SUBWORDDAN | Drop each token from the average with probability P during training |
 | `--epochs N` | 100 BOW / 15 otherwise | all | Training epochs |
-| `--lr X` | 1e-4 BOW and GloVe DAN / 1e-3 otherwise | all | Adam learning rate |
+| `--lr X` | 1e-4 BOW and 300d GloVe DAN / 1e-3 otherwise | all | Adam learning rate |
 | `--batch_size N` | 16 BOW / 32 otherwise | all | Batch size |
+| `--print_every N` | 10 BOW / 1 otherwise | all | Print train/dev loss and accuracy every N epochs |
 | `--seed N` | 0 | all | Random seed |
 
 Examples:

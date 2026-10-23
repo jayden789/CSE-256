@@ -146,8 +146,7 @@ def main():
     parser.add_argument('--epochs', type=int, default=None,
                         help='Training epochs (default: 100 for BOW, 15 for DAN/SUBWORDDAN)')
     parser.add_argument('--lr', type=float, default=None,
-                        help='Adam learning rate (default: 1e-4 for BOW and GloVe DAN, '
-                             '1e-3 for random-init DAN and SUBWORDDAN)')
+                        help='Adam learning rate (default: 1e-4 for BOW and 300d GloVe DAN, 1e-3 otherwise)')
     parser.add_argument('--batch_size', type=int, default=None, help='Batch size (default: 16 for BOW, 32 for DAN)')
     parser.add_argument('--print_every', type=int, default=None,
                         help='Print losses/accuracies every N epochs (default: 10 for BOW, 1 for DAN)')
@@ -161,8 +160,8 @@ def main():
     if args.epochs is None:
         args.epochs = 100 if is_bow else 15
     if args.lr is None:
-        glove_dan = args.model == "DAN" and not args.random_init
-        args.lr = 0.0001 if is_bow or glove_dan else 0.001
+        glove300_dan = args.model == "DAN" and not args.random_init and args.emb_dim == 300
+        args.lr = 0.0001 if is_bow or glove300_dan else 0.001
     if args.batch_size is None:
         args.batch_size = 16 if is_bow else 32
     if args.print_every is None:

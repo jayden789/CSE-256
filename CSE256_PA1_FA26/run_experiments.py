@@ -100,7 +100,7 @@ def summarize(name, runs):
 
 
 def plot_part(part, rows):
-    fig, axes = plt.subplots(1, 2, figsize=(13, 5))
+    fig, axes = plt.subplots(1, 2, figsize=(12, 3.4))
     for row in rows:
         epochs = range(1, len(row["mean_dev_curve"]) + 1)
         axes[0].plot(epochs, row["mean_train_curve"], label=row["name"])
@@ -110,9 +110,10 @@ def plot_part(part, rows):
         ax.set_ylabel("Accuracy")
         ax.set_title(title)
         ax.grid()
-    axes[1].legend(fontsize=8)
+    fig.legend(*axes[1].get_legend_handles_labels(), loc="center left", bbox_to_anchor=(1.0, 0.5), fontsize=9,
+               frameon=False)
     fig.tight_layout()
-    fig.savefig(f"results/part{part}_curves.png", dpi=150)
+    fig.savefig(f"results/part{part}_curves.png", dpi=150, bbox_inches="tight")
     plt.close(fig)
 
 
