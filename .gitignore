@@ -2,3 +2,5 @@
 .venv/
 __pycache__/
 CSE256_PA1_FA26/*.png
+**.zip
+PA1_submission
