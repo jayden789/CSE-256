@@ -1,7 +1,4 @@
 # run_experiments.py
-#
-# Runs the hyperparameter / ablation experiments reported in the writeup and saves results to results/.
-# Usage: python run_experiments.py [--part 1a|1b|2|all] [--seeds 3]
 
 import argparse
 import json
@@ -32,10 +29,6 @@ def glove(dim):
 
 
 def run_config(cfg, seed):
-    """
-    Trains one DAN configuration and returns its per-epoch curves and timing.
-    cfg['kind'] is 'glove', 'random', or 'bpe'.
-    """
     set_seed(seed)
     c = SimpleNamespace(**{**BASE, **cfg})
     if c.kind == "glove":
