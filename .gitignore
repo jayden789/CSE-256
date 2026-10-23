@@ -1,1 +1,4 @@
 .DS_Store
+.venv/
+__pycache__/
+CSE256_PA1_FA26/*.png
