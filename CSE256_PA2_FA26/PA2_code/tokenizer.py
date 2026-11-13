@@ -19,7 +19,7 @@ class SimpleTokenizer:
         tokens = word_tokenize(text)
         self.vocab = set(tokens)
         self.vocab_size = len(self.vocab) + 2
-        self.stoi = {word: i for i, word in enumerate(self.vocab, start=2)}
+        self.stoi = {word: i for i, word in enumerate(sorted(self.vocab), start=2)}
         self.stoi['<pad>'] = 0
         self.stoi['<unk>'] = 1
         self.itos = {i: word for word, i in self.stoi.items()}

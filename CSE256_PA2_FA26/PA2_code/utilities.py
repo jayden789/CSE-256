@@ -7,7 +7,7 @@ class Utilities:
         self.tokenizer = tokenizer
         self.model = model
 
-    def sanity_check(self, sentence, block_size):
+    def sanity_check(self, sentence, block_size, prefix=""):
         # Encode the sentence using the tokenizer
         wordids = self.tokenizer.encode(sentence)
 
@@ -42,10 +42,11 @@ class Utilities:
             plt.title(f"Attention Map {j + 1}")
             
             # Save the plot
-            plt.savefig(f"attention_map_{j + 1}.png")
-            
+            plt.savefig(f"{prefix}attention_map_{j + 1}.png")
+
             # Show the plot
             plt.show()
+            plt.close(fig)
             
 
 
